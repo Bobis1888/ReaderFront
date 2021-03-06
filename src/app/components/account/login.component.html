@@ -1,0 +1,31 @@
+<mat-card class="dark-container _container">
+  <mat-card *ngIf="progress" class="dark-container">
+    <mat-progress-bar mode="buffer" color="primary"></mat-progress-bar>
+  </mat-card>
+  <div class="input">
+    <mat-form-field appearance="outline" class="text input">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="user.email" placeholder="pat@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <button mat-icon-button matSuffix (click)="bad = !bad" [attr.aria-pressed]="bad">
+        <mat-icon matSuffix>{{bad ? 'mood_bad' : 'mood'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="input">
+    <mat-form-field appearance="outline" class="text input">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="user.password" [type]="hide ? 'text' : 'password'" [formControl]="pass" required>
+      <mat-error *ngIf="pass.invalid">{{getErrorMessage()}}</mat-error>
+      <button class="hide-pass" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button (click)="login()">Login</button>
+  <button mat-raised-button routerLink="/registration">Registration</button>
+  <div>
+    <div>login: test@test</div>
+    <div>pass: test</div>
+  </div>
+</mat-card>

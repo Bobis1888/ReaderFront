@@ -1,0 +1,91 @@
+mat-card-subtitle {
+  color: azure;
+}
+mat-chip {
+  max-width: 35%;
+}
+mat-toolbar , mat-sidenav {
+  background-color: #37474F;
+  color: azure;
+}
+mat-sidenav-container {
+  flex: 1 1 auto;
+  height: 100%;
+}
+h1 {
+  color: azure;
+  font-style: italic;
+}
+div.light-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+div.footer {
+  text-align: center;
+  padding: 10px;
+}
+._container {
+  max-width: 550px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+.dark-container {
+  background-color: #37474F;
+  color:azure;
+}
+.light-container {
+  background-color: darkgrey;
+}
+.container {
+  padding: 10px;
+}
+.mat-drawer-container {
+  background-color: #607D8B;
+}
+.b-icon {
+  color: azure;
+}
+.toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.mat-raised-button {
+  margin: 5px;
+}
+.example-tree-invisible {
+  display: none;
+}
+
+.tree ul,
+.tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.mat-form-field-wrapper {
+  color: azure;
+}
+.text {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: -15px;
+}
+.text mat-label {
+  color: azure;
+}
+.text .mat-input-element {
+  color: azure;
+}
+.text .mat-input-element::placeholder {
+  color: azure;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: azure;
+}
+.input {
+  margin: 4px 0;
+}

@@ -1,0 +1,9 @@
+<mat-card *ngIf="progress" class="dark-container">
+  <mat-progress-bar mode="buffer" color="primary"></mat-progress-bar>
+</mat-card>
+<mat-card class="light-container" *ngIf="!progress">
+  <div *ngIf="user.trusted">
+    <h1>Welcome {{user.email}}</h1>
+  </div>
+ </mat-card>
+
