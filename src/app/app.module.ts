@@ -21,7 +21,7 @@ import { FeedBackComponent } from "./components/feedback/feedback.component";
 
 const appsRoutes: Routes = [
   { path: '', component: ItemListComponent },
-  { path: 'body/:nameSource/:flow/:postId', component: ItemBodyComponent },
+  { path: 'body/:postId', component: ItemBodyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'dev', component: AboutComponent },

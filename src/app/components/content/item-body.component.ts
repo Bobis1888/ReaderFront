@@ -11,15 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemBodyComponent implements OnInit {
 
   item: Item;
-  postID: string;
-  nameSource: string;
-  flow: string;
+  postID: number;
   progress = true;
 
   constructor(private dataService: DataService, activeRoute: ActivatedRoute ) {
     this.postID = activeRoute.snapshot.params['postId'];
-    this.nameSource = activeRoute.snapshot.params['nameSource'];
-    this.flow = activeRoute.snapshot.params['flow'];
+    console.log(this.postID);
   }
 
   ngOnInit() {
@@ -31,7 +28,7 @@ export class ItemBodyComponent implements OnInit {
   load() {
     this.progress = true;
     this.item = null;
-    this.dataService.getItem(this.item.id).then((data: Item) => {
+    this.dataService.getItem(this.postID).then((data: Item) => {
       this.item = data;
       this.progress = false;
     });
