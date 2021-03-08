@@ -24,7 +24,7 @@ const appsRoutes: Routes = [
   { path: 'body/:postId', component: ItemBodyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'dev', component: AboutComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'info', component: AccountInfoComponent },
   { path: 'feedback', component: FeedBackComponent },
   { path: 'test', component: TestComponent },

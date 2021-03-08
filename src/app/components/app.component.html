@@ -5,15 +5,15 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" >
+  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
     <mat-list role="list">
       <mat-list-item role="listitem">
         <button class="b-icon" mat-icon-button routerLink="/">
-          <span class="material-icons">home</span>
+          <span class="material-icons">home</span> 
         </button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button class="b-icon" mat-icon-button routerLink="/dev">
+        <button class="b-icon" mat-icon-button routerLink="/about">
           <span class="material-icons">help_center</span>
         </button>
       </mat-list-item>
