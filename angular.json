@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngularDotnetCore": {
+    "ReaderFront": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngularDotnetCore:build"
+            "browserTarget": "ReaderFront:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngularDotnetCore:build:production"
+              "browserTarget": "ReaderFront:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngularDotnetCore:build"
+            "browserTarget": "ReaderFront:build"
           }
         },
         "test": {
@@ -124,7 +124,7 @@
         }
       }
     },
-    "AngularDotnetCore-e2e": {
+    "ReaderFront-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -132,7 +132,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngularDotnetCore:serve"
+            "devServerTarget": "ReaderFront:serve"
           }
         },
         "lint": {
@@ -147,5 +147,5 @@
       }
     }
   },
-  "defaultProject": "AngularDotnetCore"
+  "defaultProject": "ReaderFront"
 }

@@ -4,14 +4,17 @@ import { APIResponse } from '../models/APIResponse';
 import { User } from '../models/User';
 import { Observable, throwError } from 'rxjs';
 import { catchError,tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class AccountService {
 
-    private url = 'http://localhost:8080/api/user';
+    private url: string;
     static currentUser = new User();
 
     constructor(private http: HttpClient) {
+      this.url = environment.baseUrl + '/api/user'
     }
 
     public getCurrentUser() {

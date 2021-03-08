@@ -3,13 +3,15 @@ import { HttpClient} from '@angular/common/http';
 import { Item } from '../models/Item';
 import { Observable, throwError } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class DataService {
 
-    private url = 'http://localhost:8080/api/';
+    private url: string;
 
     constructor(private http: HttpClient) {
+    	this.url = environment.baseUrl + 'api';
     }
 
     getItems(nameSource: string): Promise<Item[]>  {
