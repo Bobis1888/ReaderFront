@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Item } from '../models/Item';
 import { Observable, throwError } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
@@ -15,7 +15,10 @@ export class DataService {
     }
 
     getItems(nameSource: string): Promise<Item[]>  {
-        return this.http.get(this.url + '/items/' + nameSource).toPromise().then((response: APIResponse) => response.items);
+        let httpOptions = {
+          headers: new HttpHeaders({'Email': 'test@test'})
+        };
+        return this.http.get(this.url + '/items/' + nameSource,httpOptions).toPromise().then((response: APIResponse) => response.items);
     }
 
     getItem(postId: number): Promise<Item> {
