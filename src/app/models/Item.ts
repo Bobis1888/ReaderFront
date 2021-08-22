@@ -1,8 +1,7 @@
-export class Item {
-  constructor(
-    public id?: number,
-    public header?: string,
-    public body?: string,
-    public nameSource?: string,
-    public publishDate?: Date) { }
+export interface Item {
+    id: number;
+    header: string;
+    body: string;
+    nameSource: string;
+    publishDate: Date;
 }

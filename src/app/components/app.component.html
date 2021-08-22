@@ -28,12 +28,12 @@
         </button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button class="b-icon" mat-icon-button routerLink="/info" *ngIf="getCurrentAccount().trusted">
+        <button class="b-icon" mat-icon-button routerLink="/info" *ngIf="getCurrentAccount()?.trusted">
           <span class="material-icons">account_circle</span>
         </button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button class="b-icon" mat-icon-button (click)="logout()" *ngIf="getCurrentAccount().trusted">
+        <button class="b-icon" mat-icon-button (click)="logout()" *ngIf="getCurrentAccount()?.trusted">
           <span class="material-icons">logout</span>
         </button>
       </mat-list-item>

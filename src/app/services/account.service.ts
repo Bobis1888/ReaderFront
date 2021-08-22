@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { APIResponse } from '../models/APIResponse';
+import { Response } from '../models/response';
 import { User } from '../models/User';
 import { Observable, throwError } from 'rxjs';
 import { catchError,tap } from 'rxjs/operators';
@@ -36,12 +36,12 @@ export class AccountService {
     }
 
     check(): Promise<User> {
-      return this.http.get(this.url + '/check').toPromise().then((response: APIResponse) => response.user);
+      return this.http.get(this.url + '/check').toPromise().then((response: Response) => response.user);
     }
 
-    private _post(user: User,url: string): Promise<APIResponse> {
+    private _post(user: User,url: string): Promise<Response> {
       return this.http
-        .post<APIResponse>(this.url + '/' + url, user)
+        .post<Response>(this.url + '/' + url, user)
         .pipe(catchError(this.handleError)).toPromise()
         .then(response => response);
     }

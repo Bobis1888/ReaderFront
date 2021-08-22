@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Item } from '../../models/Item';
+import { Response } from '../../models/response';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,7 +17,6 @@ export class ItemBodyComponent implements OnInit {
 
   constructor(private dataService: DataService, activeRoute: ActivatedRoute ) {
     this.postID = activeRoute.snapshot.params['postId'];
-    console.log(this.postID);
   }
 
   ngOnInit() {
@@ -28,8 +28,8 @@ export class ItemBodyComponent implements OnInit {
   load() {
     this.progress = true;
     this.item = null;
-    this.dataService.getItem(this.postID).then((data: Item) => {
-      this.item = data;
+    this.dataService.getItem(this.postID).subscribe((data: Response) => {
+      this.item = data.items[0];
       this.progress = false;
     });
   }

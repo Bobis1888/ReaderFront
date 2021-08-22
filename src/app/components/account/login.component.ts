@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { User } from '../../models/User';
 import { Router } from '@angular/router';
 import { AccountService } from '../../services/account.service';
-import {APIResponse} from "../../models/APIResponse";
+import {Response} from "../../models/response";
 
 @Component({
   templateUrl: './login.component.html',
@@ -12,8 +12,8 @@ import {APIResponse} from "../../models/APIResponse";
  })
 export class LoginComponent {
 
-  constructor(private accountService: AccountService,private router: Router) {
-  }
+  constructor(private accountService: AccountService,private router: Router) {}
+  
   progress = false;
   user = new User();
   hide = false;

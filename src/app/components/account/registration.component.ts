@@ -17,7 +17,7 @@ export class RegistrationComponent {
     }
   }
 
-  user = new User();
+  user:User = new User();
   hide = false;
   bad = false;
   email = new FormControl('', [Validators.required, Validators.email]);

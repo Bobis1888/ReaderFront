@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Item } from '../../models/Item';
+import { Response } from '../../models/response';
 
 @Component({
   templateUrl: './item-list.component.html',
@@ -26,8 +27,8 @@ export class ItemListComponent implements OnInit {
   load() {
     this.progress = true;
     this.items = null;
-    this.dataService.getItems(this.nameSource).then((data: Item[]) => {
-      this.items = data;
+    this.dataService.getItems(this.nameSource).subscribe((data: Response) => {
+      this.items = data.items;
       this.progress = false;
     });
   }
