@@ -4,7 +4,7 @@
   <h1>Reader 0.5</h1>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+  <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="snavOpened"
   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
     <mat-list role="list">
       <mat-list-item role="listitem">
