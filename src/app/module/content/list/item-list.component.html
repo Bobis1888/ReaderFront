@@ -1,0 +1,17 @@
+<mat-card *ngIf="progress" class="dark-container">
+  <mat-progress-bar mode="buffer"></mat-progress-bar>
+</mat-card>
+<div class="list-item-preview" *ngFor="let it of items; let index = index">
+  <mat-card class="dark-container">
+    <mat-card-header>
+      <mat-card-title>{{it.header.toString()}}</mat-card-title>
+      <mat-card-subtitle>{{it.publishDate.toLocaleString()}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div [innerHTML]=it.body></div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [routerLink]="['/body',it.id]">Read</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

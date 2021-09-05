@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { Response } from '../models/response';
-import { User } from '../models/User';
-import { Observable, throwError } from 'rxjs';
-import { catchError,tap } from 'rxjs/operators';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { Response } from '../model/response';
+import { User } from '../model/User';
+import {Observable, pipe, throwError} from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AccountService {
 
-    private url: string;
+    private readonly url: string;
     static currentUser = new User();
 
     constructor(private http: HttpClient) {
@@ -21,43 +21,41 @@ export class AccountService {
       return AccountService.currentUser;
     }
 
-    login(user: User): Promise<User> {
-      return this._post(user,'login')
-        .then(resp => AccountService.currentUser = resp.user);
+    login(user: User): Observable<Response> {
+      return this._post(user,'login');
     }
 
-    reg(user: User): Promise<User> {
-      return this._post(user,'registration')
-        .then(resp => AccountService.currentUser = resp.user);
+    reg(user: User): Observable<Response> {
+      return this._post(user,'registration');
     }
 
     info(): string {
       return "info"
     }
 
-    check(): Promise<User> {
-      return this.http.get(this.url + '/check').toPromise().then((response: Response) => response.user);
+    check(): Observable<Response> {
+      return this.http.get<Response>(this.url + '/check');
     }
 
-    private _post(user: User,url: string): Promise<Response> {
-      return this.http
-        .post<Response>(this.url + '/' + url, user)
-        .pipe(catchError(this.handleError)).toPromise()
-        .then(response => response);
+    private _post(user: User,url: string): Observable<Response> {
+      const headers= new HttpHeaders()
+        .set('content-type', 'application/json')
+        .set('Access-Control-Allow-Methods','OPTIONS,POST,GET')
+        .set('Access-Control-Allow-Origin', '*');
+      return this.http.post<Response>(this.url + '/' + url, user,{headers:headers}).pipe(
+        catchError(this.handleError)
+      );
     }
 
     logout() {
       AccountService.currentUser = new User();
-      this.http.get(this.url + '/logout').toPromise();
+      this.http.get(this.url + '/logout');
     }
 
     private handleError(error: HttpErrorResponse) {
       if (error.error instanceof ErrorEvent) {
-        // A client-side or network error occurred. Handle it accordingly.
         console.error('An error occurred:', error.error.message);
       } else {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong.
         console.error(
           `Backend returned code ${error.status}, ` +
           `body was: ${error.error}`);

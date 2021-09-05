@@ -1,75 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './components/app.component';
-import { ItemListComponent } from './components/content/item-list.component';
-import { NotFoundComponent } from './components/not-found.component';
-import { DataService } from './services/data.service';
+import { MainComponent } from './module/main/main.component';
+import { NotFoundComponent } from './module/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ItemBodyComponent } from './components/content/item-body.component';
-import { LoginComponent } from './components/account/login.component';
-import { MatButtonModule, MatCardModule, MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatProgressBarModule, MatSidenavModule, MatStepperModule, MatTabsModule, MatToolbarModule, MatTreeModule } from '@angular/material';
-import { AboutComponent } from './components/about.component';
-import { RegistrationComponent } from './components/account/registration.component';
-import { AccountInfoComponent } from "./components/account/account-info.component";
-import { TestComponent } from "./components/content/test.component";
-import { FeedBackComponent } from "./components/feedback/feedback.component";
-
-
-const appsRoutes: Routes = [
-  { path: '', component: ItemListComponent },
-  { path: 'body/:postId', component: ItemBodyComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'info', component: AccountInfoComponent },
-  { path: 'feedback', component: FeedBackComponent },
-  { path: 'test', component: TestComponent },
-  { path: '**', component: NotFoundComponent }
-];
+import {SecurityModule} from "./module/security/security.module";
+import {ContentModule} from "./module/content/content.module";
+import {FeedbackModule} from "./module/feedback/feedback.module";
+import {AboutModule} from "./module/about/about.module";
+import {CommonAppModule} from "./module/common/common-app.module";
 
 @NgModule({
   declarations: [
-    RegistrationComponent,
-    AccountInfoComponent,
-    ItemListComponent,
-    ItemBodyComponent,
-    FeedBackComponent,
     NotFoundComponent,
-    LoginComponent,
-    AboutComponent,
-    TestComponent,
-    AppComponent
-
+    MainComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(appsRoutes),
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatTabsModule,
-    MatProgressBarModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatChipsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTreeModule
-
+    HttpClientModule,
+    CommonAppModule,
+    SecurityModule,
+    FeedbackModule,
+    BrowserModule,
+    ContentModule,
+    AboutModule
   ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [MainComponent]
 })
 export class AppModule { }

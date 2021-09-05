@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/User';
-import { AccountService } from '../../services/account.service';
+import { User } from '../../../model/User';
 import { Router } from '@angular/router';
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material';
-import { catchError,tap } from 'rxjs/operators';
+import {AccountService} from "../../../services/account.service";
 
 @Component({
   templateUrl: './account-info.component.html',
   providers: [AccountService],
-  styleUrls: ['../components.css']
+  styleUrls: ['../../components.css']
 })
 export class AccountInfoComponent implements OnInit{
 

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { User } from '../../models/User';
+import { User } from '../../../model/User';
 import { Router } from '@angular/router';
-import { AccountService } from '../../services/account.service';
-import {Response} from "../../models/response";
+import { AccountService } from '../../../services/account.service';
+import {Response} from "../../../model/response";
 
 @Component({
   templateUrl: './login.component.html',
   providers: [AccountService],
-  styleUrls: ['../components.css']
+  styleUrls: ['../../components.css']
  })
 export class LoginComponent {
 
   constructor(private accountService: AccountService,private router: Router) {}
-  
+
   progress = false;
   user = new User();
   hide = false;
@@ -32,8 +32,9 @@ export class LoginComponent {
   login() {
     if (this.email.valid && this.pass.valid) {
       this.progress = true;
-      this.accountService.login(this.user).then((user:User) => {
-        if (!user.trusted) {
+      this.accountService.login(this.user).subscribe((response:Response) => {
+        this.user = response.user;
+        if (!response.user.trusted) {
           this.email.setValue('');
           this.pass.setValue('');
         }else {

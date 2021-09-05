@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../models/User';
-import { AccountService } from '../../services/account.service';
+import { User } from '../../../model/User';
+import { AccountService } from '../../../services/account.service';
 
 @Component({
   templateUrl: './registration.component.html',
   providers: [AccountService],
-  styleUrls: ['../components.css']
+  styleUrls: ['../../components.css']
  })
 export class RegistrationComponent {
 
@@ -33,8 +33,8 @@ export class RegistrationComponent {
 
   reg() {
     if (this.email.valid && this.pass[0].valid && this.pass[1].valid) {
-      this.accountService.reg(this.user).then((user:User) => {
-        if (!user.trusted) {
+      this.accountService.reg(this.user).subscribe(response => {
+        if (!response.user.trusted) {
           this.email.setValue('');
           this.pass[0].setValue('');
           this.pass[1].setValue('');

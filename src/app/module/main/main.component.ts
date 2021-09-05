@@ -1,17 +1,17 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { User } from "../models/User";
-import { AccountService } from "../services/account.service";
+import { User } from "../../model/User";
+import { AccountService } from "../../services/account.service";
 import { MatSidenavContainer} from '@angular/material/sidenav';
 import { Router } from "@angular/router";
 
 @Component({
     selector: 'app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./components.css'],
+    templateUrl: './main.component.html',
+    styleUrls: ['../components.css'],
     providers: [AccountService]
   })
-export class AppComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit, AfterViewInit {
 
   reference: any;
   mobileQuery: MediaQueryList;

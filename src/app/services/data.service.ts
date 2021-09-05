@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Item } from '../models/Item';
-import { Observable, throwError } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { Response } from '../models/response';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Response } from '../model/response';
 import { environment } from '../../environments/environment';
-import { User } from '../models/User';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataService {
 
-    private url: string;
+    private readonly url: string;
 
     constructor(private http: HttpClient) {
     	this.url = environment.baseUrl + '/api';

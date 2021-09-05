@@ -89,3 +89,9 @@ div.footer {
 .input {
   margin: 4px 0;
 }
+
+.list-item-preview {
+  margin: auto;
+  padding: 20px;
+  width: 85%;
+}
